@@ -92,9 +92,9 @@ public class Bird {
             image = birdImages[BIRD_UP][0];
         g.drawImage(image, x - halfImgWidth, y - halfImgHeight, null); // x坐标于窗口1/4处，y坐标位窗口中心
 
-        if (state == BIRD_DEAD)
+        if (state == BIRD_DEAD)  //小鸟死亡 @Robiniaa
             gameOverAnimation.draw(g, this);
-        else if (state != BIRD_DEAD_FALL)
+        else if (state != BIRD_DEAD_FALL) //此时小鸟还没有死亡 @Robiniaa
             drawScore(g);
         // 绘制碰撞矩形
 //      g.setColor(Color.black);
