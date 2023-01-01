@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
+import sun.audio.AudioStream;//sun包只能在jdk1.8下使用 @Robiniaa
 
 /**
  * 音乐工具类
