@@ -10,6 +10,10 @@ import com.kingyu.flappybird.util.Constant;
 import com.kingyu.flappybird.util.GameUtil;
 import com.kingyu.flappybird.util.MusicUtil;
 
+/**fork后的注释：
+*会在注释后标注Robiniaa，其余为原作者注释
+*/
+
 /**
  * 小鸟类，实现小鸟的绘制与飞行逻辑
  *
@@ -27,9 +31,9 @@ public class Bird {
     private BufferedImage image; // 实时的小鸟图片
 
     // 小鸟的状态
-    private int state;
-    public static final int BIRD_NORMAL = 0;
-    public static final int BIRD_UP = 1;
+    private int state;  //五种状态 @Robiniaa
+    public static final int BIRD_NORMAL = 0;   //final变量一旦被初始化后，就无法更改 @Robiniaa
+    public static final int BIRD_UP = 1;      
     public static final int BIRD_FALL = 2;
     public static final int BIRD_DEAD_FALL = 3;
     public static final int BIRD_DEAD = 4;
@@ -44,24 +48,30 @@ public class Bird {
     public static int BIRD_HEIGHT;
 
     // 在构造器中对资源初始化
+    //构造方法的名字必须和所在类的名字一致，没有返回值，但不能声明void，@Robiniaa
+    //访问权限可以为任意，但是一般情况下使用public方法权限，构造方法中的参数可以根据需要自行定义，参数的不同的构造方法构成重载 @Robiniaa
+    //构造器格式： [修饰符，比如public] 类名 (参数列表，可以没有参数){ //这里不能有return}  @Robiniaa
     public Bird() {
         counter = ScoreCounter.getInstance(); // 计分器
         gameOverAnimation = new GameOverAnimation();
 
         // 读取小鸟图片资源
-        birdImages = new BufferedImage[STATE_COUNT][IMG_COUNT];
+        birdImages = new BufferedImage[STATE_COUNT][IMG_COUNT]; //都已在前面定义：状态数为4，图片数为8 @Robiniaa
         for (int j = 0; j < STATE_COUNT; j++) {
             for (int i = 0; i < IMG_COUNT; i++) {
                 birdImages[j][i] = GameUtil.loadBufferedImage(Constant.BIRDS_IMG_PATH[j][i]);
             }
         }
 
-        assert birdImages[0][0] != null;
+        assert birdImages[0][0] != null;  //Java在1.4中新增了一个关键字：assert。在程序开发过程中使用它创建一个断言(assertion)。其中的一种形式：assert condition;   @Robinaa
+    //这里condition是一个必须为真(true)的表达式。如果表达式的结果为true，那么断言为真，并且无任何行动。如果表达式为false，则断言失败，则会抛出一个AssertionError对象。这个AssertionError继承于Error对象，  @Robinaa
+    //而Error继承于Throwable，Error是和Exception并列的一个错误对象，通常用于表达系统级运行错误。  @Robinaa
+    
         BIRD_WIDTH = birdImages[0][0].getWidth();
         BIRD_HEIGHT = birdImages[0][0].getHeight();
 
         // 初始化小鸟的坐标
-        x = Constant.FRAME_WIDTH >> 2;
+        x = Constant.FRAME_WIDTH >> 2;  //FRAME_WIDTH和FRAME_HEIGHT表示窗口尺寸（已在Constant中定义为固定值420和640） >>表示右移  @Robiniaa
         y = Constant.FRAME_HEIGHT >> 1;
 
         // 初始化碰撞矩形
