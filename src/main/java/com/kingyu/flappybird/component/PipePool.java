@@ -12,6 +12,9 @@ import com.kingyu.flappybird.util.Constant;
  * @author Kingyu
  *
  */
+
+//主要功能是缓存一组已经初始化的对象，以供随时可以使用。 @Robiniaa
+//当需要一个新对象时，就向池中借出一个，然后对象池标记当前对象正在使用，使用完毕后归还到对象池，以便再次借出。@Robiniaa
 public class PipePool {
 	private static final List<Pipe> pool = new ArrayList<>(); // 池中对象的容器
 	private static final List<MovingPipe> movingPool = new ArrayList<>(); // 池中对象的容器
