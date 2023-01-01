@@ -73,7 +73,7 @@ public class ScoreCounter {
 	public long getCurrentScore() {
 		return score;
 	}
-
+//重新开始后，重置时间 @Robiniaa
 	public void reset() {
 		score = 0;
 	}
